@@ -23,6 +23,7 @@ namespace Core.DataAccess.EntityFramework
                 // o aslında eklenecek bir nesne
                 addedEntity.State = EntityState.Added;
                 ctx.SaveChanges();
+                Console.WriteLine("added");
 
             }
         }

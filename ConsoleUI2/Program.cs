@@ -3,7 +3,7 @@ using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 
-namespace ConsoleUIProject
+namespace ConsoleUI2
 {
     internal class Program
     {
@@ -14,9 +14,7 @@ namespace ConsoleUIProject
             //BrandTest();
             //CarDto();
             //CarErrorSuccess();
-
         }
-
         private static void CarErrorSuccess()
         {
             CarManager carManager = new CarManager(new EfCarDal());
@@ -58,9 +56,9 @@ namespace ConsoleUIProject
             EfBrandDal brandDal = new EfBrandDal();
             brandDal.Add(brand);
             Brand brand2 = new Brand();
-            
 
-           
+
+
 
         }
 
@@ -71,19 +69,18 @@ namespace ConsoleUIProject
             //{
             //    Console.WriteLine(c.Id);
             //}
-            
-            
-            Car car = new Car();
 
+            Car car = new Car();
             car.BrandId = 8;
             car.ColorId = 8;
             car.ModelYear = 2012;
             car.DailyPrice = 900;
             car.Description = "guzel araba";
-            
+
             EfCarDal carDal = new();
-       
+
             carDal.Add(car);
+       
 
             //Car car3 = new Car();
             //car3.BrandId = 7;
@@ -92,14 +89,12 @@ namespace ConsoleUIProject
             //car3.DailyPrice = 900;
             //car3.Description = "kotu araba";
             //carDal.Add(car3);
-          
+
 
 
 
         }
-    
-    
-    
-    
+
+
     }
 }
