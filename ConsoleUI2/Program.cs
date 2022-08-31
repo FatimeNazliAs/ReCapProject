@@ -9,12 +9,38 @@ namespace ConsoleUI2
     {
         static void Main(string[] args)
         {
-            CarTest();
-
+            //CarTest();
             //BrandTest();
             //CarDto();
             //CarErrorSuccess();
+
+            //CustomerAdd();
+            RentalDto();
+
         }
+
+        private static void RentalDto()
+        {
+            EfRentalDal efRentalDal = new EfRentalDal();
+            RentalManager rentalManager = new RentalManager(efRentalDal);
+            foreach (var item in rentalManager.GetRentalDetails().Data)
+            {
+                Console.WriteLine(item.CustomerId + " " + item.RentDate + " " + item.ReturnDate);
+            }
+        }
+
+        private static void CustomerAdd()
+        {
+            EfCustomerDal efCustomerDal = new EfCustomerDal();
+            CustomerManager customerManager = new CustomerManager(efCustomerDal);
+            Customer customer = new Customer();
+            customer.CompanyName = "BetNaz";
+            customerManager.Add(customer);
+            Customer customer2 = new Customer();
+            customer2.CompanyName = "NazBet";
+            //customerManager.Add(customer2);
+        }
+
         private static void CarErrorSuccess()
         {
             CarManager carManager = new CarManager(new EfCarDal());
