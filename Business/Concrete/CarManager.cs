@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core2.Aspects.Autofac.Validation;
 using Core2.Utilities.Results.DataResults;
 using Core2.Utilities.Results.Results;
 using DataAccess.Abstract;
@@ -21,7 +23,10 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
-
+        
+        
+        
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             if (DateTime.Now.Hour ==16)
